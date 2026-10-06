@@ -347,3 +347,20 @@ document.addEventListener('DOMContentLoaded', () => {
   initMultiCalculator();
   fillResultsPage();
 });
+
+
+// Mobile hamburger menu
+(() => {
+  const toggle = document.querySelector('.menu-toggle');
+  const menu = document.querySelector('.topbar nav.menu');
+  if (!toggle || !menu) return;
+  toggle.addEventListener('click', () => {
+    const open = menu.classList.toggle('menu-open');
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.remove('menu-open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }));
+})();
