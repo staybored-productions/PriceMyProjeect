@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PriceMyProject</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="index.html">
+<svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#59afff"/>
+      <stop offset="100%" stop-color="#1e7cff"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#g)" d="M32 4 55 17v30L32 60 9 47V17L32 4Z"/>
+  <path fill="#07111f" opacity=".95" d="M32 11 48 20v23L32 52 16 43V20l16-9Z"/>
+  <path fill="url(#g)" d="M32 12 17 21l6 3 9-5 9 5 6-3-15-9Zm-9 14-6-3v18l15 9v-7l-9-5V26Zm18 0v12l-9 5v7l15-9V23l-6 3Z"/>
+</svg>
+<span class="brand-text">PriceMyProject</span></a>
+    <nav class="menu">
+      <a href="pages/calculator.html">Calculator</a>
+      <a href="pages/pricing-guides.html">Pricing Guides</a>
+      <a href="pages/faq.html">FAQ</a>
+      <a href="pages/about.html">About</a>
+    </nav>
+    <div class="nav-actions">
+    </div>
+  </div>
+</header>
+
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Creative Project Cost Estimator</div>
+          <h1>Know what your project <span class="accent">typically costs.</span></h1>
+          <p class="subtext">Get an instant, independent price estimate based on real market rates before you hire anyone.</p>
+          <form class="search-row" id="hero-search-form" action="pages/calculator.html">
+            <input id="hero-project-input" name="project" type="text" placeholder='What are you making? (e.g. "2D anime animation", "comic cover")' autocomplete="off" />
+            <button class="btn btn-primary" type="submit">Get Estimate →</button>
+          </form>
+          <div class="category-strip">
+            <a class="cat-tile" href="pages/calculator.html?category=animation"><span class="cat-icon">🎞️</span><div class="cat-name">Animation</div></a>
+            <a class="cat-tile" href="pages/calculator.html?category=illustration"><span class="cat-icon">✏️</span><div class="cat-name">Illustration</div></a>
+            <a class="cat-tile" href="pages/calculator.html?category=comic"><span class="cat-icon">📖</span><div class="cat-name">Comic / Manga</div></a>
+            <a class="cat-tile" href="pages/calculator.html?category=video"><span class="cat-icon">🎥</span><div class="cat-name">Video Editing</div></a>
+            <a class="cat-tile" href="pages/calculator.html?category=graphic"><span class="cat-icon">🖼️</span><div class="cat-name">Graphic Design</div></a>
+            <a class="cat-tile" href="pages/calculator.html?category=music"><span class="cat-icon">🎵</span><div class="cat-name">Music</div></a>
+            <a class="cat-tile" href="pages/calculator.html?category=website"><span class="cat-icon">💻</span><div class="cat-name">Website</div></a>
+            <a class="cat-tile" href="pages/calculator.html?category=writing"><span class="cat-icon">📝</span><div class="cat-name">Writing</div></a>
+          </div>
+          <div class="feature-trio">
+            <div class="card feature-item"><div class="fi-icon">🛡️</div><div><h4>Independent estimates</h4><p>Based on real market rates.</p></div></div>
+            <div class="card feature-item"><div class="fi-icon">📊</div><div><h4>Detailed price breakdowns</h4><p>See what affects the cost.</p></div></div>
+            <div class="card feature-item"><div class="fi-icon">👥</div><div><h4>Compare & hire talent</h4><p>Browse creative professionals.</p></div></div>
+          </div>
+        </div>
+        <aside class="card example-card">
+          <div class="label">Example Estimate</div>
+          <h3>2D Animation</h3>
+          <div class="small-muted">Projects like this typically cost</div>
+          <div class="price-big">$2,100 – $4,600</div>
+          <div class="price-sub">Most likely: ~ $3,200</div>
+          <div class="range"><div class="range-dot"></div></div>
+          <div class="range-labels"><span>$2.1K LOW</span><span>TYPICAL</span><span>$4.6K HIGH</span></div>
+          <div class="meta-list">
+            <div class="meta-item"><strong>Length</strong><span>30 seconds</span></div>
+            <div class="meta-item"><strong>Scene</strong><span>Fight sequence</span></div>
+            <div class="meta-item"><strong>Complexity</strong><span>High</span></div>
+            <div class="meta-item"><strong>Quality</strong><span>Professional indie</span></div>
+          </div>
+          <a class="btn btn-primary btn-block" href="pages/calculator.html">Try Your Own Project →</a>
+        </aside>
+      </div>
+    </section>
+
+    <main class="container">
+      <section class="section">
+        <div class="section-header"><h2>Popular Project Types</h2><a class="muted-link" href="pages/pricing-guides.html">View All →</a></div>
+        <div class="project-grid">
+          <article class="project-card animation-card blank-card">
+            <div class="thumb" style="background-image:url('assets/2d-animation-character-rig.jpg'); background-position:center 34%; background-size:cover;"></div>
+            <div class="body"><div><h3>2D Animation</h3><p>$1,200 – $3,800</p></div><div class="arrow">→</div></div>
+          </article>
+          <article class="project-card illustration-card">
+            <div class="thumb" style="background-image:url('assets/illustration-cover-cropped.jpg');"></div>
+            <div class="body"><div><h3>Illustration</h3><p>$80 – $600</p></div><div class="arrow">→</div></div>
+          </article>
+          <article class="project-card comic-card">
+            <div class="thumb" style="background-image:url('assets/comic-manga-cover.jpg'); background-position:center 42%;"></div>
+            <div class="body"><div><h3>Comic / Manga</h3><p>$300 – $1,500</p></div><div class="arrow">→</div></div>
+          </article>
+          <article class="project-card video-card">
+            <div class="thumb" style="background-image:url('assets/video-editing-cover.jpg'); background-position:center center;"></div>
+            <div class="body"><div><h3>Video Editing</h3><p>$200 – $1,200</p></div><div class="arrow">→</div></div>
+          </article>
+          <article class="project-card graphic-card">
+            <div class="thumb" style="background-image:url('assets/graphic-design-cover.jpg'); background-position:center 38%;"></div>
+            <div class="body"><div><h3>Graphic Design</h3><p>$150 – $800</p></div><div class="arrow">→</div></div>
+          </article>
+          <article class="project-card music-card">
+            <div class="thumb" style="background-image:url('assets/music-cover.jpg'); background-position:center center;"></div>
+            <div class="body"><div><h3>Music</h3><p>$100 – $800</p></div><div class="arrow">→</div></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="cta-row">
+        <article class="card cta-card image" style="background-image:url('assets/frontpage-bg-cropped.jpg'); background-position:center 18%;">
+          <h3>Hiring a freelancer?</h3>
+          <p>Get a realistic price range, see detailed breakdowns, and find the right talent for your project.</p>
+          <a class="btn btn-primary" href="pages/calculator.html">Calculate My Project →</a>
+        </article>
+      </section>
+</main>
+    
+<footer class="footer">
+  <div class="container">
+    <div>© 2026 <strong>PriceMyProject</strong>. Creative pricing shouldn’t be a mystery.</div>
+    <div><a href="pages/about.html">Methodology</a> · <a href="pages/faq.html">FAQ</a> · <a href="pages/about.html">Privacy</a> · <a href="pages/about.html">Terms</a></div>
+  </div>
+</footer>
+
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

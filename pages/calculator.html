@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Calculator — PriceMyProject</title><link href="../styles.css" rel="stylesheet"/></head><body><header class="topbar"><div class="container nav"><a class="brand" href="../index.html"><svg aria-hidden="true" class="brand-mark" viewbox="0 0 64 64"><defs><lineargradient id="g" x1="0" x2="1" y1="0" y2="1"><stop offset="0%" stop-color="#59afff"></stop><stop offset="100%" stop-color="#1e7cff"></stop></lineargradient></defs><path d="M32 4 55 17v30L32 60 9 47V17L32 4Z" fill="url(#g)"></path><path d="M32 11 48 20v23L32 52 16 43V20l16-9Z" fill="#07111f" opacity=".95"></path><path d="M32 12 17 21l6 3 9-5 9 5 6-3-15-9Zm-9 14-6-3v18l15 9v-7l-9-5V26Zm18 0v12l-9 5v7l15-9V23l-6 3Z" fill="url(#g)"></path></svg><span class="brand-text">PriceMyProject</span></a><nav class="menu"><a href="calculator.html">Calculator</a><a href="pricing-guides.html">Pricing Guides</a>
+      <a href="faq.html">FAQ</a><a href="about.html">About</a></nav><div class="nav-actions"></div></div></header>
+<main class="container content-page calculator-page">
+<section class="card calculator-shell" id="multi-calculator">
+<div class="calculator-topline">
+<div><div class="eyebrow">Instant Project Estimate</div><h1>Price your project</h1><p>Answer a few quick questions. You can go back at any time before generating the estimate.</p></div>
+<div class="step-counter"><span id="step-current">1</span> / <span id="step-total">7</span></div>
+</div>
+<div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+<form data-results="results.html" id="multi-estimate-form">
+<section class="calc-step active" data-step="1">
+<div class="step-kicker">Step 1</div><h2>What are you making?</h2><p class="step-copy">Pick the category that best matches your project.</p>
+<div class="choice-grid category-choice-grid">
+<button class="choice-card" data-field="category" data-value="animation" type="button"><span class="choice-icon">🎞️</span><strong>Animation</strong><small>2D, anime, motion, 3D</small></button>
+<button class="choice-card" data-field="category" data-value="illustration" type="button"><span class="choice-icon">✏️</span><strong>Illustration</strong><small>Character art, covers, portraits</small></button>
+<button class="choice-card" data-field="category" data-value="comic" type="button"><span class="choice-icon">📖</span><strong>Comic / Manga</strong><small>Pages, panels, lettering</small></button>
+<button class="choice-card" data-field="category" data-value="video" type="button"><span class="choice-icon">🎥</span><strong>Video Editing</strong><small>YouTube, shorts, promos</small></button>
+<button class="choice-card" data-field="category" data-value="graphic" type="button"><span class="choice-icon">🖼️</span><strong>Graphic Design</strong><small>Logos, posters, branding</small></button>
+<button class="choice-card" data-field="category" data-value="music" type="button"><span class="choice-icon">🎵</span><strong>Music</strong><small>Beats, score, mixing</small></button>
+<button class="choice-card" data-field="category" data-value="website" type="button"><span class="choice-icon">💻</span><strong>Website</strong><small>Landing pages, portfolios, sites</small></button>
+<button class="choice-card" data-field="category" data-value="writing" type="button"><span class="choice-icon">📝</span><strong>Writing</strong><small>Scripts, copy, articles</small></button>
+</div>
+</section>
+<section class="calc-step" data-step="2">
+<div class="step-kicker">Step 2</div><h2>What kind of <span data-category-label="">project</span>?</h2><p class="step-copy">Choose the closest fit. This helps tighten the estimate.</p>
+<div class="choice-grid" id="subtype-grid"></div>
+</section>
+<section class="calc-step" data-step="3">
+<div class="step-kicker">Step 3</div><h2>How big is the project?</h2><p class="step-copy" id="scope-helper">Choose the closest scope.</p>
+<div class="choice-grid" id="scope-grid"></div>
+<div class="inline-field"><label for="project-details">Anything specific?</label><input class="input" id="project-details" name="scene" placeholder="e.g. anime fight scene, full-body character, 5-page comic"/></div>
+</section>
+<section class="calc-step" data-step="4">
+<div class="step-kicker">Step 4</div><h2>How complex is it?</h2><p class="step-copy">More detail, effects, characters, revisions, or technical work generally increases cost.</p>
+<div class="choice-grid three-col">
+<button class="choice-card" data-field="complexity" data-value="low" type="button"><strong>Low</strong><small>Simple, limited details</small></button>
+<button class="choice-card" data-field="complexity" data-value="medium" type="button"><strong>Medium</strong><small>Typical professional scope</small></button>
+<button class="choice-card" data-field="complexity" data-value="high" type="button"><strong>High</strong><small>Detailed, effects-heavy, demanding</small></button>
+</div>
+</section>
+<section class="calc-step" data-step="5">
+<div class="step-kicker">Step 5</div><h2>What quality level are you targeting?</h2><p class="step-copy">This represents the experience level and finish you expect.</p>
+<div class="choice-grid four-col">
+<button class="choice-card" data-field="quality" data-value="basic" type="button"><strong>Basic</strong><small>Simple / beginner</small></button>
+<button class="choice-card" data-field="quality" data-value="indie" type="button"><strong>Indie</strong><small>Solid independent work</small></button>
+<button class="choice-card" data-field="quality" data-value="pro" type="button"><strong>Professional Indie</strong><small>Experienced specialist</small></button>
+<button class="choice-card" data-field="quality" data-value="studio" type="button"><strong>Studio</strong><small>Team / agency level</small></button>
+</div>
+</section>
+<section class="calc-step" data-step="6">
+<div class="step-kicker">Step 6</div><h2>What does the job require?</h2><p class="step-copy">Deadline, revisions, and usage can affect the final quote.</p>
+<div class="requirements-grid">
+<div class="form-group"><label for="deadline-date">Estimated deadline</label><input class="input" id="deadline-date" min="2026-10-06" name="deadlineDate" type="date" value="2026-11-05"/><p class="field-help" id="deadline-help">Choose the date you expect the project to be finished. Shorter deadlines may increase the estimate.</p></div>
+<div class="form-group"><label for="revisions">Revision rounds</label><select id="revisions" name="revisions"><option value="0">Surprise me art (0 revisions)</option><option value="1">1 revision</option><option selected="selected" value="2">2 revisions</option><option value="3">3 revisions</option><option value="4">4 revisions</option><option value="5">5 revisions</option><option value="6">6 revisions</option><option value="7">7 revisions</option><option value="8">8 revisions</option><option value="9">9 revisions</option><option value="10">10 revisions</option><option value="unlimited">Unlimited revisions</option></select><p class="field-help" id="revisions-help">“Surprise me art” means 0 revision rounds. Choose 1–10 revisions, or Unlimited revisions.</p></div>
+<div class="form-group"><label for="usage">Usage / rights</label><select id="usage" name="usage"><option selected="selected" value="organic">Organic Usage</option><option value="paid">Paid Usage</option><option value="royaltyfree">Royalty-Free</option><option value="rightsmanaged">Rights-Managed</option><option value="creativecommons">Creative Commons</option></select><div class="usage-rights-help" id="usage-help">Organic Usage — Allows a brand to repost a creator’s content on its own free social media channels, website, or emails without any ad spend.</div></div>
+<div class="form-group"><label for="quote">Already got a quote? <span class="optional">Optional</span></label><input class="input" id="quote" min="0" name="quote" placeholder="e.g. 3700" step="1" type="number"/></div>
+</div>
+</section>
+<section class="calc-step" data-step="7">
+<div class="step-kicker">Step 7</div><h2>Review your project</h2><p class="step-copy">Make sure everything looks right before PriceMyProject generates the estimate.</p>
+<div class="review-card" id="review-card"></div>
+<div class="note-box">This starter calculator uses sample pricing logic. Before public launch, replace the sample ranges with researched market data and publish your methodology.</div>
+</section>
+<input id="category-field" name="category" type="hidden"/>
+<input id="subtype-field" name="subtype" type="hidden"/>
+<input id="scope-field" name="scope" type="hidden"/>
+<input id="complexity-field" name="complexity" type="hidden"/>
+<input id="quality-field" name="quality" type="hidden"/>
+<div class="calculator-actions">
+<button class="btn btn-ghost" disabled="" id="back-step" type="button">← Back</button>
+<button class="btn btn-primary" id="next-step" type="button">Continue →</button>
+<button class="btn btn-primary hidden" id="generate-estimate" type="submit">Generate My Estimate →</button>
+</div>
+<div aria-live="polite" class="step-error" id="step-error"></div>
+</form>
+</section>
+</main><footer class="footer"><div class="container"><div>© 2026 <strong>PriceMyProject</strong>. Creative pricing shouldn’t be a mystery.</div><div><a href="about.html">Methodology</a> · <a href="about.html">Privacy</a> · <a href="about.html">Terms</a></div></div></footer><script src="../script.js"></script></body></html>
