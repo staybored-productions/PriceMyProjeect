@@ -1,234 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FAQ,  PriceMyProject</title>
-  <link rel="stylesheet" href="../styles.css?v=burger-hidden-1">
-  <style>
-    .faq-wrap{max-width:980px;margin:0 auto}
-    .faq-list{display:grid;gap:14px}
-    .faq-accordion{
-      background:linear-gradient(180deg,rgba(13,26,45,.92),rgba(7,16,29,.94));
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:16px;
-      overflow:hidden;
-      box-shadow:0 10px 28px rgba(0,0,0,.22);
-    }
-    .faq-accordion.open{border-color:rgba(46,139,255,.30)}
-    .faq-question{
-      width:100%;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-      padding:20px;
-      border:0;
-      background:transparent;
-      color:#f4f8ff;
-      font:inherit;
-      font-weight:800;
-      font-size:1.05rem;
-      text-align:left;
-      cursor:pointer;
-    }
-    .faq-plus{color:#67adff;font-size:1.55rem;line-height:1;transition:transform .18s ease}
-    .faq-accordion.open .faq-plus{transform:rotate(45deg)}
-    .faq-panel{
-      display:none;
-      color:#a9bdd5;
-      line-height:1.7;
-      padding:0 20px 20px;
-    }
-    .faq-accordion.open .faq-panel{display:block}
-    .faq-panel strong{color:#eaf3ff}
-    .faq-note{
-      margin-top:22px;
-      padding:18px 20px;
-      border-radius:14px;
-      background:rgba(46,139,255,.08);
-      border:1px solid rgba(46,139,255,.2);
-      color:#d9ebff;
-      line-height:1.6;
-    }
-  </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>FAQ, PriceMyProject</title>
+ <link rel="stylesheet" href="../styles.css?v=burger-hidden-1">
+ <style>
+ .faq-wrap{max-width:980px;margin:0 auto}
+ .faq-list{display:grid;gap:14px}
+ .faq-accordion{
+ background:linear-gradient(180deg,rgba(13,26,45,.92),rgba(7,16,29,.94));
+ border:1px solid rgba(255,255,255,.08);
+ border-radius:16px;
+ overflow:hidden;
+ box-shadow:0 10px 28px rgba(0,0,0,.22);
+ }
+ .faq-accordion.open{border-color:rgba(46,139,255,.30)}
+ .faq-question{
+ width:100%;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:20px;
+ padding:20px;
+ border:0;
+ background:transparent;
+ color:#f4f8ff;
+ font:inherit;
+ font-weight:800;
+ font-size:1.05rem;
+ text-align:left;
+ cursor:pointer;
+ }
+ .faq-plus{color:#67adff;font-size:1.55rem;line-height:1;transition:transform .18s ease}
+ .faq-accordion.open .faq-plus{transform:rotate(45deg)}
+ .faq-panel{
+ display:none;
+ color:#a9bdd5;
+ line-height:1.7;
+ padding:0 20px 20px;
+ }
+ .faq-accordion.open .faq-panel{display:block}
+ .faq-panel strong{color:#eaf3ff}
+ .faq-note{
+ margin-top:22px;
+ padding:18px 20px;
+ border-radius:14px;
+ background:rgba(46,139,255,.08);
+ border:1px solid rgba(46,139,255,.2);
+ color:#d9ebff;
+ line-height:1.6;
+ }
+ </style>
 </head>
 <body>
 <header class="topbar">
-  <div class="container nav">
-    <a class="brand" href="../index.html">
-      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
-        <defs><linearGradient id="gfaq" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#59afff"/><stop offset="100%" stop-color="#1e7cff"/></linearGradient></defs>
-        <path fill="url(#gfaq)" d="M32 4 55 17v30L32 60 9 47V17L32 4Z"/>
-        <path fill="#07111f" opacity=".95" d="M32 11 48 20v23L32 52 16 43V20l16-9Z"/>
-        <path fill="url(#gfaq)" d="M32 12 17 21l6 3 9-5 9 5 6-3-15-9Zm-9 14-6-3v18l15 9v-7l-9-5V26Zm18 0v12l-9 5v7l15-9V23l-6 3Z"/>
-      </svg>
-      <span class="brand-text">PriceMyProject</span>
-    </a>
-    <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false"><span></span><span></span><span></span></button><nav class="menu" hidden>
-      <a href="calculator.html">Calculator</a>
-      <a href="pricing-guides.html">Pricing Guides</a>
-      <a href="faq.html">FAQ</a>
-      <a href="about.html">About</a>
-    </nav>
-    <div class="nav-actions">
-    </div>
-  </div>
+ <div class="container nav">
+ <a class="brand" href="../index.html">
+ <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+ <defs><linearGradient id="gfaq" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#59afff"/><stop offset="100%" stop-color="#1e7cff"/></linearGradient></defs>
+ <path fill="url(#gfaq)" d="M32 4 55 17v30L32 60 9 47V17L32 4Z"/>
+ <path fill="#07111f" opacity=".95" d="M32 11 48 20v23L32 52 16 43V20l16-9Z"/>
+ <path fill="url(#gfaq)" d="M32 12 17 21l6 3 9-5 9 5 6-3-15-9Zm-9 14-6-3v18l15 9v-7l-9-5V26Zm18 0v12l-9 5v7l15-9V23l-6 3Z"/>
+ </svg>
+ <span class="brand-text">PriceMyProject</span>
+ </a>
+ <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false"><span></span><span></span><span></span></button><nav class="menu" hidden>
+ <a href="calculator.html">Calculator</a>
+ <a href="pricing-guides.html">Pricing Guides</a>
+ <a href="faq.html">FAQ</a>
+ <a href="about.html">About</a>
+ </nav>
+ <div class="nav-actions">
+ </div>
+ </div>
 </header>
 
 <main class="container content-page">
-  <section class="card page-hero faq-wrap">
-    <div class="eyebrow">Frequently Asked Questions</div>
-    <h1>Questions about estimates, pricing, and creatives.</h1>
-    <p>PriceMyProject is designed to give users a clearer starting point before hiring creative talent. These answers explain how estimates work and what they should and should not be used for.</p>
-  </section>
+ <section class="card page-hero faq-wrap">
+ <div class="eyebrow">Frequently Asked Questions</div>
+ <h1>Questions about estimates, pricing, and creatives.</h1>
+ <p>PriceMyProject is designed to give users a clearer starting point before hiring creative talent. These answers explain how estimates work and what they should and should not be used for.</p>
+ </section>
 
-  <section class="faq-wrap">
-    <div class="faq-list">
+ <section class="faq-wrap">
+ <div class="faq-list">
 
-        <div class="faq-accordion open">
-          <button class="faq-question" type="button" aria-expanded="true">
-            <span>How does PriceMyProject come up with its estimates?</span><span class="faq-plus">+</span>
-          </button>
-          <div class="faq-panel">PriceMyProject estimates are based on publicly available pricing information, published freelance and studio rate ranges, project scope, complexity, turnaround time, revision count, usage rights, and other factors that commonly affect creative pricing. The goal is to provide <strong>market-informed guidance</strong>, not a guaranteed quote.</div>
-        </div>
+ <div class="faq-accordion open">
+ <button class="faq-question" type="button" aria-expanded="true">
+ <span>How does PriceMyProject come up with its estimates?</span><span class="faq-plus">+</span>
+ </button>
+ <div class="faq-panel">PriceMyProject estimates are based on publicly available pricing information, published freelance and studio rate ranges, project scope, complexity, turnaround time, revision count, usage rights, and other factors that commonly affect creative pricing. The goal is to provide <strong>market-informed guidance</strong>, not a guaranteed quote.</div>
+ </div>
 
-        <div class="faq-accordion">
-          <button class="faq-question" type="button" aria-expanded="false">
-            <span>Are the estimates exact?</span><span class="faq-plus">+</span>
-          </button>
-          <div class="faq-panel">No. Estimates are guidance ranges. Actual prices can vary depending on the freelancer or studio, experience level, location, deadline, complexity, revision count, licensing terms, and the exact deliverables required.</div>
-        </div>
+ <div class="faq-accordion">
+ <button class="faq-question" type="button" aria-expanded="false">
+ <span>Are the estimates exact?</span><span class="faq-plus">+</span>
+ </button>
+ <div class="faq-panel">No. Estimates are guidance ranges. Actual prices can vary depending on the freelancer or studio, experience level, location, deadline, complexity, revision count, licensing terms, and the exact deliverables required.</div>
+ </div>
 
-        <div class="faq-accordion">
-          <button class="faq-question" type="button" aria-expanded="false">
-            <span>Why can two artists charge very different prices for the same project?</span><span class="faq-plus">+</span>
-          </button>
-          <div class="faq-panel">Experience, reputation, speed, specialty, demand, production quality, team size, workflow, and usage rights can all affect pricing. Two creators can reasonably quote different amounts for similar work.</div>
-        </div>
+ <div class="faq-accordion">
+ <button class="faq-question" type="button" aria-expanded="false">
+ <span>Why can two artists charge very different prices for the same project?</span><span class="faq-plus">+</span>
+ </button>
+ <div class="faq-panel">Experience, reputation, speed, specialty, demand, production quality, team size, workflow, and usage rights can all affect pricing. Two creators can reasonably quote different amounts for similar work.</div>
+ </div>
 
-        <div class="faq-accordion">
-          <button class="faq-question" type="button" aria-expanded="false">
-            <span>Does PriceMyProject set freelancer prices?</span><span class="faq-plus">+</span>
-          </button>
-          <div class="faq-panel">No. Creatives set their own prices. PriceMyProject only provides independent pricing guidance and estimated market ranges.</div>
-        </div>
+ <div class="faq-accordion">
+ <button class="faq-question" type="button" aria-expanded="false">
+ <span>Does PriceMyProject set freelancer prices?</span><span class="faq-plus">+</span>
+ </button>
+ <div class="faq-panel">No. Creatives set their own prices. PriceMyProject only provides independent pricing guidance and estimated market ranges.</div>
+ </div>
 
-        <div class="faq-accordion">
-          <button class="faq-question" type="button" aria-expanded="false">
-            <span>Is a quote above the estimate automatically overpriced?</span><span class="faq-plus">+</span>
-          </button>
-          <div class="faq-panel">No. A higher quote may be justified by experience, faster turnaround, extra revisions, commercial usage, specialized skills, a larger team, or a higher production standard.</div>
-        </div>
+ <div class="faq-accordion">
+ <button class="faq-question" type="button" aria-expanded="false">
+ <span>Is a quote above the estimate automatically overpriced?</span><span class="faq-plus">+</span>
+ </button>
+ <div class="faq-panel">No. A higher quote may be justified by experience, faster turnaround, extra revisions, commercial usage, specialized skills, a larger team, or a higher production standard.</div>
+ </div>
 
-        <div class="faq-accordion">
-          <button class="faq-question" type="button" aria-expanded="false">
-            <span>Is a quote below the estimate always a good deal?</span><span class="faq-plus">+</span>
-          </button>
-          <div class="faq-panel">Not necessarily. A lower price can be legitimate, but users should still review the creator’s portfolio, experience, deliverables, timeline, revision policy, contract terms, and payment structure before hiring.</div>
-        </div>
+ <div class="faq-accordion">
+ <button class="faq-question" type="button" aria-expanded="false">
+ <span>Is a quote below the estimate always a good deal?</span><span class="faq-plus">+</span>
+ </button>
+ <div class="faq-panel">Not necessarily. A lower price can be legitimate, but users should still review the creator’s portfolio, experience, deliverables, timeline, revision policy, contract terms, and payment structure before hiring.</div>
+ </div>
 
-        <div class="faq-accordion">
-          <button class="faq-question" type="button" aria-expanded="false">
-            <span>What affects the estimated price the most?</span><span class="faq-plus">+</span>
-          </button>
-          <div class="faq-panel">The biggest factors are usually project type, scope, complexity, quality level, deadline, revision count, and usage rights. For some categories, duration, page count, asset count, or team size can also significantly change the estimate.</div>
-        </div>
+ <div class="faq-accordion">
+ <button class="faq-question" type="button" aria-expanded="false">
+ <span>What affects the estimated price the most?</span><span class="faq-plus">+</span>
+ </button>
+ <div class="faq-panel">The biggest factors are usually project type, scope, complexity, quality level, deadline, revision count, and usage rights. For some categories, duration, page count, asset count, or team size can also significantly change the estimate.</div>
+ </div>
 
-        <div class="faq-accordion">
-          <button class="faq-question" type="button" aria-expanded="false">
-            <span>What are usage rights and why do they affect price?</span><span class="faq-plus">+</span>
-          </button>
-          <div class="faq-panel">Usage rights define how the finished work can be used. Personal use, organic social posts, commercial use, paid advertising, resale, or perpetual worldwide rights can have very different values. Broader rights often increase the price because the work is being used more extensively.</div>
-        </div>
+ <div class="faq-accordion">
+ <button class="faq-question" type="button" aria-expanded="false">
+ <span>What are usage rights and why do they affect price?</span><span class="faq-plus">+</span>
+ </button>
+ <div class="faq-panel">Usage rights define how the finished work can be used. Personal use, organic social posts, commercial use, paid advertising, resale, or perpetual worldwide rights can have very different values. Broader rights often increase the price because the work is being used more extensively.</div>
+ </div>
 
-        <div class="faq-accordion">
-          <button class="faq-question" type="button" aria-expanded="false">
-            <span>Why do revisions affect the cost?</span><span class="faq-plus">+</span>
-          </button>
-          <div class="faq-panel">Revisions require additional labor and production time. A project with one small revision round is very different from a project with unlimited changes, so the revision allowance can meaningfully affect pricing.</div>
-        </div>
+ <div class="faq-accordion">
+ <button class="faq-question" type="button" aria-expanded="false">
+ <span>Why do revisions affect the cost?</span><span class="faq-plus">+</span>
+ </button>
+ <div class="faq-panel">Revisions require additional labor and production time. A project with one small revision round is very different from a project with unlimited changes, so the revision allowance can meaningfully affect pricing.</div>
+ </div>
 
-        <div class="faq-accordion">
-          <button class="faq-question" type="button" aria-expanded="false">
-            <span>Why does a rush deadline cost more?</span><span class="faq-plus">+</span>
-          </button>
-          <div class="faq-panel">Faster turnaround can require a creator to rearrange their schedule, work longer hours, delay other projects, or add extra team members. Rush work may therefore carry a higher price.</div>
-        </div>
+ <div class="faq-accordion">
+ <button class="faq-question" type="button" aria-expanded="false">
+ <span>Why does a rush deadline cost more?</span><span class="faq-plus">+</span>
+ </button>
+ <div class="faq-panel">Faster turnaround can require a creator to rearrange their schedule, work longer hours, delay other projects, or add extra team members. Rush work may therefore carry a higher price.</div>
+ </div>
 
-        <div class="faq-accordion">
-          <button class="faq-question" type="button" aria-expanded="false">
-            <span>Can I use the estimate when negotiating with a freelancer?</span><span class="faq-plus">+</span>
-          </button>
-          <div class="faq-panel">Yes, but it should be used as a reference point, not as proof that a creator must charge a specific amount. The final price should reflect the creator’s experience, scope, terms, and the exact work being requested.</div>
-        </div>
+ <div class="faq-accordion">
+ <button class="faq-question" type="button" aria-expanded="false">
+ <span>Can I use the estimate when negotiating with a freelancer?</span><span class="faq-plus">+</span>
+ </button>
+ <div class="faq-panel">Yes, but it should be used as a reference point, not as proof that a creator must charge a specific amount. The final price should reflect the creator’s experience, scope, terms, and the exact work being requested.</div>
+ </div>
 
-        <div class="faq-accordion">
-          <button class="faq-question" type="button" aria-expanded="false">
-            <span>Does PriceMyProject take a cut from freelancers?</span><span class="faq-plus">+</span>
-          </button>
-          <div class="faq-panel">Not currently. PriceMyProject does not take a percentage of a freelancer’s project price. If that changes in the future, the platform’s fees and terms should be clearly disclosed.</div>
-        </div>
+ <div class="faq-accordion">
+ <button class="faq-question" type="button" aria-expanded="false">
+ <span>Does PriceMyProject take a cut from freelancers?</span><span class="faq-plus">+</span>
+ </button>
+ <div class="faq-panel">Not currently. PriceMyProject does not take a percentage of a freelancer’s project price. If that changes in the future, the platform’s fees and terms should be clearly disclosed.</div>
+ </div>
 
-        <div class="faq-accordion">
-          <button class="faq-question" type="button" aria-expanded="false">
-            <span>Are creatives verified?</span><span class="faq-plus">+</span>
-          </button>
-          <div class="faq-panel">Verification features may be added in the future. Until then, users should review portfolios, references, contracts, payment terms, and other relevant information before hiring any creative professional.</div>
-        </div>
+ <div class="faq-accordion">
+ <button class="faq-question" type="button" aria-expanded="false">
+ <span>Are creatives verified?</span><span class="faq-plus">+</span>
+ </button>
+ <div class="faq-panel">Verification features may be added in the future. Until then, users should review portfolios, references, contracts, payment terms, and other relevant information before hiring any creative professional.</div>
+ </div>
 
-        <div class="faq-accordion">
-          <button class="faq-question" type="button" aria-expanded="false">
-            <span>Can I save or share an estimate?</span><span class="faq-plus">+</span>
-          </button>
-          <div class="faq-panel">The platform is designed to support saved and shareable estimates. As those features are added, users will be able to share project results and potentially generate branded estimate cards or links.</div>
-        </div>
+ <div class="faq-accordion">
+ <button class="faq-question" type="button" aria-expanded="false">
+ <span>Can I save or share an estimate?</span><span class="faq-plus">+</span>
+ </button>
+ <div class="faq-panel">The platform is designed to support saved and shareable estimates. As those features are added, users will be able to share project results and potentially generate branded estimate cards or links.</div>
+ </div>
 
-        <div class="faq-accordion">
-          <button class="faq-question" type="button" aria-expanded="false">
-            <span>What if my project doesn’t fit one of the categories?</span><span class="faq-plus">+</span>
-          </button>
-          <div class="faq-panel">Choose the closest available category and describe the project as accurately as possible. More categories and project types can be added over time as the platform expands.</div>
-        </div>
+ <div class="faq-accordion">
+ <button class="faq-question" type="button" aria-expanded="false">
+ <span>What if my project doesn’t fit one of the categories?</span><span class="faq-plus">+</span>
+ </button>
+ <div class="faq-panel">Choose the closest available category and describe the project as accurately as possible. More categories and project types can be added over time as the platform expands.</div>
+ </div>
 
-        <div class="faq-accordion">
-          <button class="faq-question" type="button" aria-expanded="false">
-            <span>How often is pricing data updated?</span><span class="faq-plus">+</span>
-          </button>
-          <div class="faq-panel">Pricing ranges should be reviewed and adjusted as market conditions, published pricing information, creative workflows, and available rate data change.</div>
-        </div>
+ <div class="faq-accordion">
+ <button class="faq-question" type="button" aria-expanded="false">
+ <span>How often is pricing data updated?</span><span class="faq-plus">+</span>
+ </button>
+ <div class="faq-panel">Pricing ranges should be reviewed and adjusted as market conditions, published pricing information, creative workflows, and available rate data change.</div>
+ </div>
 
-        <div class="faq-accordion">
-          <button class="faq-question" type="button" aria-expanded="false">
-            <span>Is PriceMyProject a replacement for a professional quote?</span><span class="faq-plus">+</span>
-          </button>
-          <div class="faq-panel">No. PriceMyProject is an educational pricing tool. The final price should always come from the creator, freelancer, or studio actually doing the work.</div>
-        </div>
+ <div class="faq-accordion">
+ <button class="faq-question" type="button" aria-expanded="false">
+ <span>Is PriceMyProject a replacement for a professional quote?</span><span class="faq-plus">+</span>
+ </button>
+ <div class="faq-panel">No. PriceMyProject is an educational pricing tool. The final price should always come from the creator, freelancer, or studio actually doing the work.</div>
+ </div>
 </div>
 
-    <div class="faq-note">
-      <strong>Important:</strong> PriceMyProject provides market-informed estimates and educational pricing guidance. It does not guarantee a final price, quality level, availability, or outcome from any creative professional.
-    </div>
-  </section>
+ <div class="faq-note">
+ <strong>Important:</strong> PriceMyProject provides market-informed estimates and educational pricing guidance. It does not guarantee a final price, quality level, availability, or outcome from any creative professional.
+ </div>
+ </section>
 </main>
 
 <footer class="footer">
-  <div class="container">
-    <div>© 2026 <strong>PriceMyProject</strong>. Creative pricing shouldn’t be a mystery.</div>
-    <div><a href="about.html">Methodology</a> · <a href="faq.html">FAQ</a> · <a href="about.html">Privacy</a> · <a href="about.html">Terms</a></div>
-  </div>
+ <div class="container">
+ <div>© 2026 <strong>PriceMyProject</strong>. Creative pricing shouldn’t be a mystery.</div>
+ <div><a href="about.html">Methodology</a> · <a href="faq.html">FAQ</a> · <a href="about.html">Privacy</a> · <a href="about.html">Terms</a></div>
+ </div>
 </footer>
 <script src="../script.js?v=burger-hidden-1"></script>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll(".faq-question").forEach(function (button) {
-    button.addEventListener("click", function () {
-      var item = button.closest(".faq-accordion");
-      var isOpen = item.classList.toggle("open");
-      button.setAttribute("aria-expanded", isOpen ? "true" : "false");
-    });
-  });
+ document.querySelectorAll(".faq-question").forEach(function (button) {
+ button.addEventListener("click", function () {
+ var item = button.closest(".faq-accordion");
+ var isOpen = item.classList.toggle("open");
+ button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+ });
+ });
 });
 </script>
 
