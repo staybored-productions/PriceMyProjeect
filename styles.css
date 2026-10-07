@@ -729,3 +729,34 @@ img { max-width: 100%; display: block; }
     opacity:1 !important;
   }
 }
+
+/* v8: PriceMyProject on desktop + mobile; Price is blue */
+.brand-text {
+  display:inline-flex !important;
+  align-items:baseline;
+  white-space:nowrap;
+  visibility:visible !important;
+  opacity:1 !important;
+}
+.brand-price { color:#39b9ff !important; }
+.brand-my { color:#ffad33 !important; margin-left:.02em; }
+.brand-project { color:#f6f9ff !important; }
+
+@media screen and (max-width:900px) {
+  .brand {
+    display:flex !important;
+    align-items:center !important;
+    gap:8px !important;
+    font-size:1.22rem !important;
+  }
+  .brand-text {
+    display:inline-flex !important;
+    visibility:visible !important;
+    opacity:1 !important;
+  }
+}
+
+/* v9: PriceMyProject on mobile + desktop; Price uses PriceMyIdea blue */
+.brand-price { color:#39b9ff !important; }
+.brand-my { color:#ffad33 !important; }
+.brand-project { color:#f6f9ff !important; }
