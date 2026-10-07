@@ -172,7 +172,7 @@ function initMultiCalculator() {
   function refreshUsageHelp() {
     const value = document.querySelector('#usage')?.value || state.usage;
     if (usageHelpEl) {
-      usageHelpEl.textContent = `${getUsageLabel(value)} — ${getUsageDesc(value)}`;
+      usageHelpEl.textContent = `${getUsageLabel(value)},  ${getUsageDesc(value)}`;
     }
   }
 
@@ -233,16 +233,16 @@ function initMultiCalculator() {
 
   function reviewMarkup() {
     syncRequirements();
-    const subtypeLabel = (SUBTYPES[state.category] || []).find(x=>x[0]===state.subtype)?.[1] || '—';
-    const scopeLabel = (SCOPES[state.category] || []).find(x=>x[0]===state.scope)?.[1] || '—';
+    const subtypeLabel = (SUBTYPES[state.category] || []).find(x=>x[0]===state.subtype)?.[1] || ', ';
+    const scopeLabel = (SCOPES[state.category] || []).find(x=>x[0]===state.scope)?.[1] || ', ';
     const map = {low:'Low',medium:'Medium',high:'High',basic:'Basic',indie:'Indie',pro:'Professional Indie',studio:'Studio',flexible:'Flexible',normal:'Normal',rush:'Rush'};
     document.querySelector('#review-card').innerHTML = `
-      <div class="review-row"><span>Category</span><strong>${CATEGORY_LABELS[state.category] || '—'}</strong></div>
+      <div class="review-row"><span>Category</span><strong>${CATEGORY_LABELS[state.category] || ', '}</strong></div>
       <div class="review-row"><span>Type</span><strong>${subtypeLabel}</strong></div>
       <div class="review-row"><span>Scope</span><strong>${scopeLabel}</strong></div>
       <div class="review-row"><span>Details</span><strong>${state.scene || 'Not specified'}</strong></div>
-      <div class="review-row"><span>Complexity</span><strong>${map[state.complexity] || '—'}</strong></div>
-      <div class="review-row"><span>Quality</span><strong>${map[state.quality] || '—'}</strong></div>
+      <div class="review-row"><span>Complexity</span><strong>${map[state.complexity] || ', '}</strong></div>
+      <div class="review-row"><span>Quality</span><strong>${map[state.quality] || ', '}</strong></div>
       <div class="review-row"><span>Estimated deadline</span><strong>${formatDeadlineDate(state.deadlineDate)}</strong></div>
       <div class="review-row"><span>Revisions</span><strong>${getRevisionLabel(state.revisions)}</strong></div>
       <div class="review-row"><span>Usage</span><strong>${getUsageLabel(state.usage)}</strong></div>
@@ -323,7 +323,7 @@ function fillResultsPage() {
   const complexityMap = { low:'Low', medium:'Medium', high:'High' };
   const scopeLabel = (SCOPES[data.category] || []).find(x=>x[0]===data.scope)?.[1] || data.scope;
   const subtypeLabel = (SUBTYPES[data.category] || []).find(x=>x[0]===data.subtype)?.[1] || 'General';
-  document.querySelectorAll('[data-project-type]').forEach(el => el.textContent = `${CATEGORY_LABELS[data.category] || 'Project'} — ${subtypeLabel}`);
+  document.querySelectorAll('[data-project-type]').forEach(el => el.textContent = `${CATEGORY_LABELS[data.category] || 'Project'},  ${subtypeLabel}`);
   document.querySelectorAll('[data-project-duration]').forEach(el => el.textContent = scopeLabel);
   document.querySelectorAll('[data-project-scene]').forEach(el => el.textContent = data.scene);
   document.querySelectorAll('[data-project-complexity]').forEach(el => el.textContent = complexityMap[data.complexity] || 'Medium');
@@ -335,7 +335,7 @@ function fillResultsPage() {
     if (quoteValue) {
       const quote = Number(quoteValue);
       const verdict = quote >= result.low && quote <= result.high ? 'Within the expected range' : (quote < result.low ? 'Below the expected range' : 'Above the expected range');
-      quoteBlock.innerHTML = `<strong>${formatMoney(quote)}</strong> — ${verdict}`;
+      quoteBlock.innerHTML = `<strong>${formatMoney(quote)}</strong>,  ${verdict}`;
     } else {
       quoteBlock.textContent = 'No existing quote was entered. Use this range when comparing freelancer proposals.';
     }
@@ -349,7 +349,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// Mobile hamburger menu — hidden by default, revealed only after tap
+// Mobile hamburger menu,  hidden by default, revealed only after tap
 function initMobileMenu() {
   document.querySelectorAll('.topbar .nav').forEach(nav => {
     const menu = nav.querySelector('nav.menu');
