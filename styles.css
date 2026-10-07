@@ -686,3 +686,46 @@ img { max-width: 100%; display: block; }
   .brand { font-size: 1.22rem !important; gap: 8px; }
   .brand-mark.brand-bulb { width: 31px; height: 31px; flex-basis:31px; }
 }
+
+/* v6: PriceMyIdea name visible on computer + mobile */
+.brand-text {
+  display:inline-flex !important;
+  align-items:baseline;
+  white-space:nowrap;
+  visibility:visible !important;
+  opacity:1 !important;
+}
+.brand-price { color:#f6f9ff; }
+.brand-my { color:#ffad33; margin-left:.02em; }
+.brand-idea { color:#39b9ff; }
+
+@media screen and (max-width:900px) {
+  .brand {
+    display:flex !important;
+    align-items:center !important;
+    gap:8px !important;
+    font-size:1.22rem !important;
+  }
+  .brand-text {
+    display:inline-flex !important;
+    visibility:visible !important;
+    opacity:1 !important;
+    font-size:1em !important;
+  }
+}
+
+/* v7: Pricetheidea brand name on computer + mobile */
+.brand-text {
+  display:inline-flex !important;
+  align-items:baseline;
+  white-space:nowrap;
+  visibility:visible !important;
+  opacity:1 !important;
+}
+@media screen and (max-width:900px) {
+  .brand-text {
+    display:inline-flex !important;
+    visibility:visible !important;
+    opacity:1 !important;
+  }
+}
