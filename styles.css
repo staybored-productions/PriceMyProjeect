@@ -765,3 +765,8 @@ img { max-width: 100%; display: block; }
 .brand-price { color:#39b9ff !important; }
 .brand-my { color:#ffad33 !important; }
 .brand-project { color:#39b9ff !important; }
+
+/* v11: PriceMyIdea — Price + Idea blue, My orange */
+.brand-price { color:#39b9ff !important; }
+.brand-my { color:#ffad33 !important; }
+.brand-idea { color:#39b9ff !important; }
