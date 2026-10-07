@@ -760,3 +760,8 @@ img { max-width: 100%; display: block; }
 .brand-price { color:#39b9ff !important; }
 .brand-my { color:#ffad33 !important; }
 .brand-project { color:#f6f9ff !important; }
+
+/* v10: Price + Project blue, My orange — desktop and mobile */
+.brand-price { color:#39b9ff !important; }
+.brand-my { color:#ffad33 !important; }
+.brand-project { color:#39b9ff !important; }
