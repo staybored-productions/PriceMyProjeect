@@ -349,33 +349,42 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// Mobile hamburger menu
+// Mobile hamburger menu — hidden by default, revealed only after tap
 function initMobileMenu() {
   document.querySelectorAll('.topbar .nav').forEach(nav => {
     const menu = nav.querySelector('nav.menu');
-    if (!menu) return;
-    let toggle = nav.querySelector('.menu-toggle');
-    if (!toggle) {
-      toggle = document.createElement('button');
-      toggle.className = 'menu-toggle';
-      toggle.type = 'button';
-      toggle.setAttribute('aria-label','Open navigation menu');
-      toggle.setAttribute('aria-expanded','false');
-      toggle.innerHTML = '<span></span><span></span><span></span>';
-      menu.parentNode.insertBefore(toggle, menu);
-    }
-    toggle.onclick = function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      const open = !menu.classList.contains('menu-open');
-      menu.classList.toggle('menu-open', open);
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+    const toggle = nav.querySelector('.menu-toggle');
+    if (!menu || !toggle) return;
+
+    const sync = () => {
+      if (window.innerWidth <= 840) {
+        menu.hidden = toggle.getAttribute('aria-expanded') !== 'true';
+      } else {
+        menu.hidden = false;
+        toggle.setAttribute('aria-expanded','false');
+      }
     };
+
+    // Always start CLOSED on mobile.
+    toggle.setAttribute('aria-expanded','false');
+    if (window.innerWidth <= 840) menu.hidden = true;
+
+    toggle.addEventListener('click', e => {
+      e.preventDefault();
+      const opening = toggle.getAttribute('aria-expanded') !== 'true';
+      toggle.setAttribute('aria-expanded', opening ? 'true' : 'false');
+      toggle.setAttribute('aria-label', opening ? 'Close navigation menu' : 'Open navigation menu');
+      menu.hidden = !opening;
+    });
+
     menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      menu.classList.remove('menu-open');
-      toggle.setAttribute('aria-expanded','false');
+      if (window.innerWidth <= 840) {
+        menu.hidden = true;
+        toggle.setAttribute('aria-expanded','false');
+      }
     }));
+    window.addEventListener('resize', sync);
+    sync();
   });
 }
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initMobileMenu);
