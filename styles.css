@@ -672,3 +672,17 @@ img { max-width: 100%; display: block; }
   #hero-search-form.search-row input#hero-project-input { display: block !important; width: 100% !important; min-height: 58px !important; margin: 0 !important; padding: 16px 18px !important; border: 2px solid rgba(255,255,255,.24) !important; border-radius: 14px !important; background: #fff !important; color: #0a1a2b !important; box-shadow: none !important; }
   #hero-search-form.search-row button.btn { display: block !important; width: 100% !important; min-height: 56px !important; margin: 0 !important; border: 0 !important; border-radius: 14px !important; box-shadow: 0 12px 24px rgba(46,139,255,.22) !important; }
 }
+
+
+/* PriceMyIdea brand refresh: blue + orange, compact on mobile */
+.brand { gap: 10px; }
+.brand-mark.brand-bulb { width: 34px; height: 34px; flex: 0 0 34px; filter: drop-shadow(0 0 7px rgba(46,139,255,.28)) drop-shadow(0 0 5px rgba(255,159,28,.2)); }
+.brand-text { display:inline-flex; align-items:baseline; letter-spacing:-.045em; font-weight:850; }
+.brand-price { color:#f6f9ff; }
+.brand-my { color:#ffad33; margin-left:.02em; }
+.brand-idea { color:#39b9ff; }
+.menu-toggle span { background: linear-gradient(90deg, #ffad33 0 28%, #65bfff 28% 100%); }
+@media (max-width: 900px) {
+  .brand { font-size: 1.22rem !important; gap: 8px; }
+  .brand-mark.brand-bulb { width: 31px; height: 31px; flex-basis:31px; }
+}
