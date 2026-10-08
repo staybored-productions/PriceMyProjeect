@@ -76,7 +76,7 @@ img { max-width: 100%; display: block; }
  position: absolute; inset: 0;
  background:
  linear-gradient(90deg, rgba(6,16,31,.95) 0%, rgba(6,16,31,.82) 42%, rgba(6,16,31,.56) 68%, rgba(6,16,31,.84) 100%),
- url('assets/frontpage-bg-cropped.jpg?v=watermark-v15') center center / cover no-repeat;
+ url('assets/frontpage-bg-cropped.jpg?v=watermark-v16') center center / cover no-repeat;
  filter: saturate(1.05);
 }
 .hero .container { position: relative; z-index: 1; }
