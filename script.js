@@ -234,7 +234,7 @@ function initMultiCalculator() {
  function reviewMarkup() {
  syncRequirements();
  const subtypeLabel = (SUBTYPES[state.category] || []).find(x=>x[0]===state.subtype)?.[1] || ', ';
- const scopeLabel = (SCOPES[state.category] || []).find(x=>x[0]===state.scope)?.[1] || ', ';
+ const scopeLabel = getScopeLabel(state.category, state.scope);
  const map = {low:'Low',medium:'Medium',high:'High',basic:'Basic',indie:'Indie',pro:'Professional Indie',studio:'Studio',flexible:'Flexible',normal:'Normal',rush:'Rush'};
  document.querySelector('#review-card').innerHTML = `
  <div class="review-row"><span>Category</span><strong>${CATEGORY_LABELS[state.category] || ', '}</strong></div>
@@ -305,6 +305,40 @@ function initMultiCalculator() {
  showStep(1);
 }
 
+
+function getScopeLabel(category, scope) {
+ const entry=(SCOPES[category] || []).find(([value])=>String(value)===String(scope));
+ return entry ? entry[1] : String(scope || 'Not specified');
+}
+// Category-specific indicative allocations of the same estimate, not extra charges.
+const COST_COMPONENTS = {
+ animation:[['Animation labor',.45],['Backgrounds',.18],['Effects',.14],['Compositing',.13],['Revisions',.10]],
+ illustration:[['Concept and sketching',.20],['Drawing and rendering',.43],['Color and finishing',.22],['Revisions',.15]],
+ comic:[['Pencils and layouts',.38],['Inking',.23],['Coloring and lettering',.27],['Revisions',.12]],
+ video:[['Editing labor',.49],['Motion graphics',.18],['Color and audio finishing',.21],['Revisions',.12]],
+ graphic:[['Concept development',.25],['Design production',.44],['File preparation',.16],['Revisions',.15]],
+ music:[['Composition or production',.48],['Recording or sound design',.22],['Mixing and mastering',.20],['Revisions',.10]],
+ website:[['Planning and design',.27],['Development',.49],['Testing and launch',.15],['Revisions',.09]],
+ writing:[['Research and outlining',.24],['Drafting',.51],['Editing and proofreading',.17],['Revisions',.08]]
+};
+function renderCostComponents(category, result) {
+ const container=document.querySelector('[data-cost-breakdown]');
+ if (!container) return;
+ const factors=COST_COMPONENTS[category] || COST_COMPONENTS.animation;
+ let allocatedLow=0,allocatedHigh=0;
+ container.replaceChildren();
+ factors.forEach(([label,share],i)=>{
+  const last=i===factors.length-1;
+  const low=last?result.low-allocatedLow:Math.round(result.low*share);
+  const high=last?result.high-allocatedHigh:Math.round(result.high*share);
+  allocatedLow+=low;allocatedHigh+=high;
+  const line=document.createElement('div');line.className='line';
+  const name=document.createElement('span');name.textContent=label;
+  const value=document.createElement('span');value.textContent=`${formatMoney(low)} to ${formatMoney(high)}`;
+  line.append(name,value);container.append(line);
+ });
+}
+
 function fillResultsPage() {
  const wrap = document.querySelector('[data-results-page]');
  if (!wrap) return;
@@ -316,12 +350,13 @@ function fillResultsPage() {
  deadlineDate: params.get('deadlineDate') || '2026-11-05', revisions: params.get('revisions') || '2', usage: params.get('usage') || 'organic'
  };
  const result = estimateProject(data);
+ renderCostComponents(data.category, result);
  document.querySelectorAll('[data-price-low]').forEach(el => el.textContent = formatMoney(result.low));
  document.querySelectorAll('[data-price-high]').forEach(el => el.textContent = formatMoney(result.high));
  document.querySelectorAll('[data-price-likely]').forEach(el => el.textContent = formatMoney(result.likely));
  const qualityMap = { basic:'Basic', indie:'Indie', pro:'Professional Indie', studio:'Studio' };
  const complexityMap = { low:'Low', medium:'Medium', high:'High' };
- const scopeLabel = (SCOPES[data.category] || []).find(x=>x[0]===data.scope)?.[1] || data.scope;
+ const scopeLabel = getScopeLabel(data.category, data.scope);
  const subtypeLabel = (SUBTYPES[data.category] || []).find(x=>x[0]===data.subtype)?.[1] || 'General';
  document.querySelectorAll('[data-project-type]').forEach(el => el.textContent = `${CATEGORY_LABELS[data.category] || 'Project'}, ${subtypeLabel}`);
  document.querySelectorAll('[data-project-duration]').forEach(el => el.textContent = scopeLabel);
