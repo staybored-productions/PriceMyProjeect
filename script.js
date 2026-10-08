@@ -389,3 +389,65 @@ function initMobileMenu() {
 }
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initMobileMenu);
 else initMobileMenu();
+
+
+/* v23: accessible front-end forms; no backend configured yet. */
+function initCommunityForms() {
+  function showMessage(form, message, kind) {
+    const status = form.querySelector('.form-status');
+    if (!status) return;
+    status.hidden = false;
+    status.dataset.kind = kind;
+    status.textContent = message;
+  }
+  function validateEmail(input) {
+    if (!input) return false;
+    input.setCustomValidity('');
+    const valid = input.checkValidity();
+    input.setAttribute('aria-invalid', String(!valid));
+    return valid;
+  }
+  document.querySelectorAll('[data-signup-form]').forEach(form => {
+    const email = form.elements.namedItem('email');
+    email.addEventListener('input', () => { email.setCustomValidity(''); email.removeAttribute('aria-invalid'); });
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      if (!validateEmail(email)) {
+        showMessage(form, 'Enter a valid email address to join the mailing list.', 'error');
+        email.focus(); return;
+      }
+      showMessage(form, 'The mailing list is not accepting signups yet. Your email has not been submitted or saved.', 'error');
+    });
+  });
+  const feedbackForm = document.querySelector('[data-feedback-form]');
+  if (!feedbackForm) return;
+  const message = feedbackForm.elements.namedItem('feedback');
+  const email = feedbackForm.elements.namedItem('email');
+  const optIn = feedbackForm.elements.namedItem('mailing_list_opt_in');
+  [message, email].forEach(field => field.addEventListener('input', () => {
+    field.setCustomValidity(''); field.removeAttribute('aria-invalid');
+  }));
+  feedbackForm.addEventListener('submit', event => {
+    event.preventDefault();
+    if (!message.checkValidity()) {
+      message.setAttribute('aria-invalid', 'true');
+      showMessage(feedbackForm, 'Please enter at least 10 characters of feedback.', 'error');
+      message.focus(); return;
+    }
+    if (email.value.trim() && !validateEmail(email)) {
+      showMessage(feedbackForm, 'Enter a valid email address, or leave the email field blank.', 'error');
+      email.focus(); return;
+    }
+    if (optIn.checked && !email.value.trim()) {
+      email.setAttribute('aria-invalid', 'true');
+      showMessage(feedbackForm, 'Enter your email address to opt in to the mailing list, or uncheck the box.', 'error');
+      email.focus(); return;
+    }
+    showMessage(feedbackForm, 'Feedback submissions are not active yet. Your feedback and email have not been submitted or saved.', 'error');
+  });
+}
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initCommunityForms);
+} else {
+  initCommunityForms();
+}

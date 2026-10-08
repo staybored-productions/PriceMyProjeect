@@ -730,7 +730,7 @@ img { max-width: 100%; display: block; }
   }
 }
 
-/* v8: PriceMyProject on desktop + mobile; Price is blue */
+/* Previous brand styling (superseded by PriceMyIdea) */
 .brand-text {
   display:inline-flex !important;
   align-items:baseline;
@@ -756,7 +756,7 @@ img { max-width: 100%; display: block; }
   }
 }
 
-/* v9: PriceMyProject on mobile + desktop; Price uses PriceMyIdea blue */
+/* Previous brand styling (superseded by PriceMyIdea) */
 .brand-price { color:#39b9ff !important; }
 .brand-my { color:#ffad33 !important; }
 .brand-project { color:#f6f9ff !important; }
@@ -779,3 +779,24 @@ img { max-width: 100%; display: block; }
 
 
 
+
+/* v23: accessible signup and feedback forms */
+.signup-panel,.feedback-panel{padding:clamp(20px,3vw,32px);margin-top:28px;max-width:100%}
+.signup-panel h2,.feedback-panel h2{margin:0 0 10px;font-size:clamp(1.4rem,2.5vw,2rem)}
+.signup-panel>p{color:var(--muted);line-height:1.55}
+.feedback-panel{max-width:780px;margin-inline:auto}
+.form-field{display:flex;flex-direction:column;gap:8px;min-width:0;margin:0 0 18px}
+.form-field label,.form-checkbox label{font-weight:700;color:var(--text)}
+.form-field input,.form-field textarea{display:block;width:100%;min-width:0;max-width:100%;padding:14px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.06);color:var(--text);font:inherit;line-height:1.5}
+.form-field input::placeholder,.form-field textarea::placeholder{color:#b0c1d4}
+.form-field input:focus-visible,.form-field textarea:focus-visible,.form-checkbox input:focus-visible{outline:3px solid #7ec8ff;outline-offset:3px}
+.form-field [aria-invalid="true"]{border-color:#ff9d9d}
+.form-note{font-size:.9rem;line-height:1.5;color:#b8c9dc;margin:3px 0 14px}
+.form-status{margin-top:14px;padding:12px 14px;border:1px solid rgba(255,255,255,.2);border-radius:10px;color:#e7f4ff;background:rgba(255,255,255,.05)}
+.form-status[data-kind="error"]{border-color:#ff9d9d;color:#ffe0e0}
+.signup-fields{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:14px;max-width:700px}
+.signup-fields .form-field{margin:0}
+.signup-fields .btn{min-height:53px}
+.form-checkbox{display:flex;align-items:flex-start;gap:12px;margin:8px 0 5px}
+.form-checkbox input{width:20px;height:20px;flex:0 0 20px;accent-color:#39b9ff;margin:2px 0 0}
+@media(max-width:620px){.signup-fields{grid-template-columns:1fr}.signup-fields .btn{width:100%}}
