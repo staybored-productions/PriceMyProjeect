@@ -800,3 +800,8 @@ img { max-width: 100%; display: block; }
 .form-checkbox{display:flex;align-items:flex-start;gap:12px;margin:8px 0 5px}
 .form-checkbox input{width:20px;height:20px;flex:0 0 20px;accent-color:#39b9ff;margin:2px 0 0}
 @media(max-width:620px){.signup-fields{grid-template-columns:1fr}.signup-fields .btn{width:100%}}
+
+/* v24: clearly visible homepage Feedback entry point */
+.feedback-home-link{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin:18px 0 8px;padding:17px 20px;border:1px solid rgba(81,168,255,.3);border-radius:14px;background:rgba(46,139,255,.08);color:#dbe9f7}
+.feedback-home-link a{color:#7bc6ff;font-weight:800;text-decoration:underline;text-underline-offset:3px}
+.feedback-home-link a:focus-visible{outline:3px solid #ffad33;outline-offset:4px}
