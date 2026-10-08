@@ -778,6 +778,4 @@ img { max-width: 100%; display: block; }
 @media(max-width:900px){.brand-text{display:inline-flex!important;white-space:nowrap!important}}
 
 
-/* v20: small, unobtrusive homepage watermark only */
-.hero::after{content:"© PriceMyIdea";position:absolute;right:16px;bottom:14px;left:auto;top:auto;z-index:2;pointer-events:none;color:rgba(255,255,255,.75);text-shadow:0 1px 3px #000;font-size:12px;font-weight:600;background:none;opacity:1;}
-.hero .container{position:relative;z-index:2;}
+
