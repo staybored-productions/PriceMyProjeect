@@ -770,3 +770,9 @@ img { max-width: 100%; display: block; }
 .brand-price { color:#39b9ff !important; }
 .brand-my { color:#ffad33 !important; }
 .brand-idea { color:#39b9ff !important; }
+
+/* v12: consistent PriceMyIdea header on every page and viewport */
+.brand-text {display:inline-flex!important;align-items:baseline;white-space:nowrap;visibility:visible!important;opacity:1!important}
+.brand-price,.brand-idea {color:#39b9ff!important}
+.brand-my {color:#ffad33!important;margin-left:.02em}
+@media(max-width:900px){.brand-text{display:inline-flex!important;white-space:nowrap!important}}
