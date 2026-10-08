@@ -805,3 +805,17 @@ img { max-width: 100%; display: block; }
 .feedback-home-link{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin:18px 0 8px;padding:17px 20px;border:1px solid rgba(81,168,255,.3);border-radius:14px;background:rgba(46,139,255,.08);color:#dbe9f7}
 .feedback-home-link a{color:#7bc6ff;font-weight:800;text-decoration:underline;text-underline-offset:3px}
 .feedback-home-link a:focus-visible{outline:3px solid #ffad33;outline-offset:4px}
+
+/* v26: fully opaque mobile navigation, no homepage text bleeding through */
+@media (max-width: 900px) {
+  .topbar nav.menu:not([hidden]) {
+    background: #07111f !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    isolation: isolate;
+    box-shadow: 0 22px 55px rgba(0,0,0,.72) !important;
+  }
+  .topbar nav.menu:not([hidden]) a {
+    background: #142033 !important;
+  }
+}
