@@ -823,3 +823,28 @@ img { max-width: 100%; display: block; }
 .regional-panel{padding:20px 24px;margin-bottom:22px}.regional-panel h2{font-size:1.2rem}.regional-panel label{display:block;margin-bottom:8px}.regional-panel p{color:#b9d4ef;line-height:1.5}
 .book-print-fields{padding:18px;border:1px solid rgba(255,255,255,.13);border-radius:16px;margin-bottom:20px;background:#0d2035}.book-print-fields[hidden]{display:none}.book-fields-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.book-fields-grid label{display:grid;gap:8px}
 @media(max-width:600px){.book-fields-grid{grid-template-columns:1fr}.category-strip{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* v28: readable native controls on light/dark devices, across every form */
+:root{color-scheme:dark}
+input,textarea,select,option,optgroup{font:inherit;color-scheme:dark}
+.input,select,.form-field input,.form-field textarea,.book-fields-grid input,.book-fields-grid select{background-color:#10243b!important;color:#f6f9ff!important;border:1px solid #55708d!important;opacity:1}
+select option,select optgroup{background-color:#10243b!important;color:#f6f9ff!important}
+input::placeholder,textarea::placeholder,.input::placeholder{color:#bdccde!important;opacity:1}
+input[type=checkbox],input[type=radio]{accent-color:#56b4ff}
+input:focus-visible,textarea:focus-visible,select:focus-visible,.region-choice:focus-within{outline:3px solid #80d2ff!important;outline-offset:3px}
+input:disabled,textarea:disabled,select:disabled{opacity:.6}
+/* Countries are always visible on step 1, without opening a native dropdown. */
+.regional-panel{margin:0 0 26px;padding:20px!important;background:#0b1a2c!important}
+.regional-panel h3{margin:0 0 12px;font-size:1.15rem;color:#f6f9ff}
+.region-fieldset{margin:0;padding:0;border:0;min-width:0}
+.region-fieldset legend{padding:0 0 12px;color:#e6f2ff;font-weight:700}
+.region-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.region-choice{display:flex;align-items:center;gap:10px;padding:12px 14px;min-width:0;border:1px solid #526e8c;border-radius:12px;background:#11253c;color:#f7fbff;cursor:pointer;line-height:1.35}
+.region-choice:has(input:checked){background:#183e65;border-color:#75c5ff;box-shadow:inset 0 0 0 1px #75c5ff}
+.region-choice input{flex:0 0 auto;width:17px;height:17px;margin:0}
+.region-name{flex:1;min-width:0;overflow-wrap:anywhere}
+.region-currency{font-size:.78rem;color:#b9d9f3;white-space:nowrap}
+#region-message{margin:14px 0 0;color:#d0e5f7;line-height:1.5}
+@media(max-width:700px){.region-options{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:380px){.region-options{grid-template-columns:1fr}}
+@media(prefers-color-scheme:light){:root{color-scheme:light}input,textarea,select,option,optgroup{color-scheme:light} .input,select,.form-field input,.form-field textarea,.book-fields-grid input,.book-fields-grid select{background-color:#f5f9ff!important;color:#14283d!important;border-color:#708aa3!important}select option,select optgroup{background-color:#f5f9ff!important;color:#14283d!important}input::placeholder,textarea::placeholder,.input::placeholder{color:#50677e!important}.region-choice input{color-scheme:light}}

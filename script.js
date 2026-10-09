@@ -508,6 +508,7 @@ function initRegionSelector(){
  const note=document.querySelector('#region-message');
  const names={US:['United States','USD'],CA:['Canada','CAD'],GB:['United Kingdom','GBP'],AU:['Australia','AUD'],DE:['Germany','EUR'],FR:['France','EUR'],IN:['India','INR'],JP:['Japan','JPY'],BR:['Brazil','BRL'],MX:['Mexico','MXN'],OTHER:['Other country','varies']};
  const update=()=>{const [name,currency]=names[el.value]||names.OTHER;note.textContent=el.value==='US'?`${name} · ${currency}. US reference pricing.`:`${name} · Local currency ${currency}. Local rates are not verified yet; results will be clearly labeled as US reference estimates, not converted local prices.`;};
+ document.querySelectorAll('input[name="region-choice"]').forEach(radio=>radio.addEventListener('change',()=>{if(radio.checked){el.value=radio.value;update();}}));
  el.addEventListener('change',update);update();
 }
 document.addEventListener('DOMContentLoaded',initRegionSelector);
