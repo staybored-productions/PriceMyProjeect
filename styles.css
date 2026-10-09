@@ -819,3 +819,7 @@ img { max-width: 100%; display: block; }
     background: #142033 !important;
   }
 }
+
+.regional-panel{padding:20px 24px;margin-bottom:22px}.regional-panel h2{font-size:1.2rem}.regional-panel label{display:block;margin-bottom:8px}.regional-panel p{color:#b9d4ef;line-height:1.5}
+.book-print-fields{padding:18px;border:1px solid rgba(255,255,255,.13);border-radius:16px;margin-bottom:20px;background:#0d2035}.book-print-fields[hidden]{display:none}.book-fields-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.book-fields-grid label{display:grid;gap:8px}
+@media(max-width:600px){.book-fields-grid{grid-template-columns:1fr}.category-strip{grid-template-columns:repeat(3,minmax(0,1fr))}}

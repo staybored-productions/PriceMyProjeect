@@ -1,6 +1,6 @@
 const CATEGORY_LABELS = {
  animation: 'Animation', illustration: 'Illustration', comic: 'Comic / Manga',
- video: 'Video Editing', graphic: 'Graphic Design', music: 'Music', website: 'Website', writing: 'Writing'
+ video: 'Video Editing', graphic: 'Graphic Design', music: 'Music', website: 'Website', writing: 'Writing', book: 'Paperback Book'
 };
 
 const REVISION_LABELS = {
@@ -59,6 +59,7 @@ const SUBTYPES = {
  graphic: [['logo','Logo'],['branding','Brand Identity'],['poster','Poster / Flyer'],['album','Album Cover'],['social','Social Graphics']],
  music: [['beat','Beat / Instrumental'],['score','Original Score'],['mix','Mixing'],['master','Mastering'],['song','Full Song Production']],
  website: [['landing','Landing Page'],['portfolio','Portfolio'],['business','Business Website'],['ecommerce','E-commerce'],['custom','Custom Web App']],
+ book: [['paperback','Paperback'],['illustrated','Illustrated Paperback'],['novel','Text Paperback'],['comicbook','Comic Paperback']],
  writing: [['script','Script'],['copy','Website Copy'],['article','Article / Blog'],['editing','Editing'],['book','Book / Long-form']]
 };
 
@@ -70,13 +71,14 @@ const SCOPES = {
  graphic: [['1','One asset'],['3','3 assets'],['5','5 assets'],['10','10 assets'],['20','20+ assets']],
  music: [['30','30 seconds'],['60','1 minute'],['180','3 minutes'],['300','5 minutes'],['600','10+ minutes']],
  website: [['1','1 page'],['3','3 pages'],['5','5 pages'],['10','10 pages'],['20','10+ pages / custom']],
+ book: [['24','24 pages'],['100','100 pages'],['200','200 pages'],['300','300 pages'],['500','500 pages']],
  writing: [['500','Up to 500 words'],['1000','~1,000 words'],['2500','~2,500 words'],['5000','~5,000 words'],['10000','10,000+ words']]
 };
 
 function estimateProject(data) {
  const categoryBase = {
  animation: [800, 2200], illustration: [90, 450], comic: [140, 450], video: [180, 700],
- graphic: [120, 550], music: [100, 600], website: [500, 1800], writing: [80, 400]
+ graphic: [120, 550], music: [100, 600], website: [500, 1800], writing: [80, 400], book: [50, 150]
  };
  const complexityMult = { low: 0.8, medium: 1, high: 1.35 };
  const qualityMult = { basic: 0.75, indie: 1, pro: 1.3, studio: 1.7 };
@@ -104,6 +106,7 @@ function estimateProject(data) {
  if (data.category === 'graphic') scopeMult = Math.max(1, scope * .65);
  if (data.category === 'music') scopeMult = Math.max(.75, scope / 180);
  if (data.category === 'website') scopeMult = Math.max(1, scope * .55);
+ if (data.category === 'book') scopeMult = Math.max(.5,scope/100);
  if (data.category === 'writing') scopeMult = Math.max(.65, scope / 1000);
 
  const mult = scopeMult * (complexityMult[data.complexity] || 1) * (qualityMult[data.quality] || 1) *
@@ -130,6 +133,7 @@ function guessCategoryFromText(text) {
  if (/(graphic design|logo|branding|poster|album cover|flyer)/.test(q)) return 'graphic';
  if (/(music|song|beat|soundtrack|composer|audio|mix|master)/.test(q)) return 'music';
  if (/(website|web site|landing page|web design|developer|frontend|web app)/.test(q)) return 'website';
+ if (/(paperback|book printing|print-on-demand|kdp)/.test(q)) return 'book';
  if (/(writing|writer|script|copywriting|article|book|proofread)/.test(q)) return 'writing';
  return 'animation';
 }
@@ -180,6 +184,7 @@ function initMultiCalculator() {
  const field = btn.dataset.field;
  const value = btn.dataset.value;
  state[field] = value;
+ if(field==='category'){const el=document.querySelector('#book-print-fields');if(el)el.hidden=value!=='book';}
  document.querySelectorAll(`.choice-card[data-field="${field}"]`).forEach(el => el.classList.remove('selected'));
  btn.classList.add('selected');
  const hidden = document.querySelector(`#${field}-field`);
@@ -226,6 +231,8 @@ function initMultiCalculator() {
  state.revisions = document.querySelector('#revisions')?.value || state.revisions;
  state.usage = document.querySelector('#usage')?.value || state.usage;
  state.quote = document.querySelector('#quote')?.value || '';
+ state.region=document.querySelector('#region-select')?.value||'US';
+ if(state.category==='book'){state.bookQuantity=document.querySelector('#book-quantity')?.value||'1';state.bookInk=document.querySelector('#book-ink')?.value||'bw';state.bookTrim=document.querySelector('#book-trim')?.value||'6x9';state.bookPaper=document.querySelector('#book-paper')?.value||'white';}
  }
 
  document.querySelector('#usage')?.addEventListener('change', refreshUsageHelp);
@@ -312,6 +319,7 @@ function getScopeLabel(category, scope) {
 }
 // Category-specific indicative allocations of the same estimate, not extra charges.
 const COST_COMPONENTS = {
+ book:[['Print setup',.20],['Interior printing',.55],['Cover and binding',.20],['Handling allowance',.05]],
  animation:[['Animation labor',.45],['Backgrounds',.18],['Effects',.14],['Compositing',.13],['Revisions',.10]],
  illustration:[['Concept and sketching',.20],['Drawing and rendering',.43],['Color and finishing',.22],['Revisions',.15]],
  comic:[['Pencils and layouts',.38],['Inking',.23],['Coloring and lettering',.27],['Revisions',.12]],
@@ -347,9 +355,17 @@ function fillResultsPage() {
  category: params.get('category') || 'animation', subtype: params.get('subtype') || '',
  scope: params.get('scope') || params.get('duration') || '30', complexity: params.get('complexity') || 'high',
  quality: params.get('quality') || 'pro', scene: params.get('scene') || 'Project details not specified',
- deadlineDate: params.get('deadlineDate') || '2026-11-05', revisions: params.get('revisions') || '2', usage: params.get('usage') || 'organic'
+ deadlineDate: params.get('deadlineDate') || '2026-11-05', revisions: params.get('revisions') || '2', usage: params.get('usage') || 'organic',region:params.get('region')||'US',bookQuantity:params.get('bookQuantity')||'1',bookInk:params.get('bookInk')||'bw',bookTrim:params.get('bookTrim')||'6x9'
  };
- const result = estimateProject(data);
+ let result=estimateProject(data);
+ if(data.category==='book'){
+  const pages=Math.max(24,Number(data.scope)||100),copies=Math.max(1,Math.min(10000,Number(data.bookQuantity)||1));
+  const unit=(2.5+pages*(data.bookInk==='color'?.065:.018))*(data.bookTrim==='8.5x11'?1.25:1);
+  const low=Math.round(unit*copies),high=Math.round(unit*copies*1.5);
+  result={low,high,likely:Math.round((low+high)/2)};
+ }
+ const warning=document.querySelector('[data-regional-warning]');
+ if(warning)warning.textContent=data.region==='US'?(data.category==='book'?'Illustrative US paperback printing budget in USD. Not a live KDP quote; excludes tax and shipping.':'US reference estimate in USD, not a guaranteed quote.'):'Regional prices have not been verified for your selected country. Figures below are US reference estimates in USD, NOT local prices or currency conversions. Taxes, laws, and printing costs may differ.';
  renderCostComponents(data.category, result);
  document.querySelectorAll('[data-price-low]').forEach(el => el.textContent = formatMoney(result.low));
  document.querySelectorAll('[data-price-high]').forEach(el => el.textContent = formatMoney(result.high));
@@ -486,3 +502,12 @@ if (document.readyState === 'loading') {
 } else {
   initCommunityForms();
 }
+
+function initRegionSelector(){
+ const el=document.querySelector('#region-select');if(!el)return;
+ const note=document.querySelector('#region-message');
+ const names={US:['United States','USD'],CA:['Canada','CAD'],GB:['United Kingdom','GBP'],AU:['Australia','AUD'],DE:['Germany','EUR'],FR:['France','EUR'],IN:['India','INR'],JP:['Japan','JPY'],BR:['Brazil','BRL'],MX:['Mexico','MXN'],OTHER:['Other country','varies']};
+ const update=()=>{const [name,currency]=names[el.value]||names.OTHER;note.textContent=el.value==='US'?`${name} · ${currency}. US reference pricing.`:`${name} · Local currency ${currency}. Local rates are not verified yet; results will be clearly labeled as US reference estimates, not converted local prices.`;};
+ el.addEventListener('change',update);update();
+}
+document.addEventListener('DOMContentLoaded',initRegionSelector);

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Project Cost Calculator | PriceMyIdea</title><link href="../styles.css?v=pmi-menu-v26" rel="stylesheet"/></head><body><header class="topbar"><div class="container nav"><a class="brand" href="../index.html"><svg class="brand-mark brand-bulb" viewBox="0 0 64 64" aria-hidden="true">
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Project Cost Calculator | PriceMyIdea</title><link href="../styles.css?v=pmi-v27" rel="stylesheet"/></head><body><header class="topbar"><div class="container nav"><a class="brand" href="../index.html"><svg class="brand-mark brand-bulb" viewBox="0 0 64 64" aria-hidden="true">
   <defs>
     <linearGradient id="brandGlow" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#ff9f1c"/><stop offset="48%" stop-color="#ffd166"/><stop offset="52%" stop-color="#56c7ff"/><stop offset="100%" stop-color="#1e7cff"/>
@@ -20,7 +20,7 @@
 </div>
 <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
 <form data-results="results.html" id="multi-estimate-form">
-<section class="calc-step active" data-step="1">
+<section class="card regional-panel"><h2>🌍 Country / region</h2><label for="region-select">Where will your project be produced?</label><select class="input" id="region-select" aria-describedby="region-message"><option value="US">United States</option><option value="CA">Canada</option><option value="GB">United Kingdom</option><option value="AU">Australia</option><option value="DE">Germany</option><option value="FR">France</option><option value="IN">India</option><option value="JP">Japan</option><option value="BR">Brazil</option><option value="MX">Mexico</option><option value="OTHER">Other country</option></select><p id="region-message" role="status" aria-live="polite"></p></section><section class="calc-step active" data-step="1">
 <div class="step-kicker">Step 1</div><h2>What are you making?</h2><p class="step-copy">Pick the category that best matches your project.</p>
 <div class="choice-grid category-choice-grid">
 <button class="choice-card" data-field="category" data-value="animation" type="button"><span class="choice-icon">🎞️</span><strong>Animation</strong><small>2D, anime, motion, 3D</small></button>
@@ -33,7 +33,7 @@
 <button class="choice-card" data-field="category" data-value="writing" type="button"><span class="choice-icon">📝</span><strong>Writing</strong><small>Scripts, copy, articles</small></button>
 </div>
 </section>
-<section class="calc-step" data-step="2">
+<button class="choice-card" data-field="category" data-value="book" type="button"><span class="choice-icon">📖</span><strong>Paperback Book</strong><small>Printing, binding, paper, ink</small></button></div><section class="calc-step" data-step="2">
 <div class="step-kicker">Step 2</div><h2>What kind of <span data-category-label="">project</span>?</h2><p class="step-copy">Choose the closest fit. This helps tighten the estimate.</p>
 <div class="choice-grid" id="subtype-grid"></div>
 </section>
@@ -59,7 +59,7 @@
 <button class="choice-card" data-field="quality" data-value="studio" type="button"><strong>Studio</strong><small>Team / agency level</small></button>
 </div>
 </section>
-<section class="calc-step" data-step="6">
+<section class="calc-step" data-step="6"><div class="book-print-fields" id="book-print-fields" hidden><h3>Paperback printing details</h3><div class="book-fields-grid"><label>Copies<input class="input" id="book-quantity" type="number" min="1" max="10000" value="1"></label><label>Interior ink<select class="input" id="book-ink"><option value="bw">Black and white</option><option value="color">Color</option></select></label><label>Trim size<select class="input" id="book-trim"><option value="6x9">6 × 9 inches</option><option value="5x8">5 × 8 inches</option><option value="8.5x11">8.5 × 11 inches</option></select></label><label>Paper<select class="input" id="book-paper"><option value="white">White</option><option value="cream">Cream</option></select></label></div><p>Planning estimate only. Confirm prices with your print provider.</p></div>
 <div class="step-kicker">Step 6</div><h2>What does the job require?</h2><p class="step-copy">Deadline, revisions, and usage can affect the final quote.</p>
 <div class="requirements-grid">
 <div class="form-group"><label for="deadline-date">Estimated deadline</label><input class="input" id="deadline-date" min="2026-10-06" name="deadlineDate" type="date" value="2026-11-05"/><p class="field-help" id="deadline-help">Choose the date you expect the project to be finished. Shorter deadlines may increase the estimate.</p></div>
@@ -86,4 +86,4 @@
 <div aria-live="polite" class="step-error" id="step-error"></div>
 </form>
 </section>
-</main><footer class="footer"><div class="container"><div>© 2026 <strong>PriceMyIdea</strong>. Creative pricing shouldn’t be a mystery.</div><div><a href="about.html">Methodology</a> · <a href="about.html">Privacy</a> · <a href="about.html">Terms</a></div></div></footer><script src="../script.js?v=pmi-v25"></script></body></html>
+</main><footer class="footer"><div class="container"><div>© 2026 <strong>PriceMyIdea</strong>. Creative pricing shouldn’t be a mystery.</div><div><a href="about.html">Methodology</a> · <a href="about.html">Privacy</a> · <a href="about.html">Terms</a></div></div></footer><script src="../script.js?v=pmi-v27"></script></body></html>
